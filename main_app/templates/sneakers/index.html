@@ -22,6 +22,7 @@
 <section class="card-container">
   {% for sneaker in sneakers %}
     <div class="card">
+      <a href="/sneakers/{{ sneaker.id }}">
       <div class="card-content">
         <div class="card-img-container">
           <img 
@@ -30,13 +31,10 @@
           >
         </div>
         <h2 class="card-title">{{ sneaker.name }}</h2>
-        {% if sneaker %}
           <p>The {{ sneaker.brand }}  {{ sneaker.name }}s are available!</p>
-        {% else %}
-          <p>Nothing new yet.</p>
-        {% endif %}
         <p><small>{{ sneaker.description }}</small></p>
       </div>
+      </a>
     </div>
   {% endfor %}
 </section>
