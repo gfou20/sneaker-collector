@@ -70,6 +70,12 @@ class Location(models.Model):
   )
   city = models.CharField(max_length=100)
 
+  def __str__(self):
+    return self.name
+  
+  def get_absolute_url(self):
+    return reverse("locations_detail", kwargs={"pk": self.id})
+
 class Sneaker(models.Model):
   name = models.CharField(max_length=100)
   brand = models.CharField(max_length=100)
