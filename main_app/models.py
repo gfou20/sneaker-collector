@@ -7,6 +7,7 @@ class Sneaker(models.Model):
   brand = models.CharField(max_length=100)
   description = models.TextField(max_length=250)
   color = models.CharField(max_length=50)
+  price = models.IntegerField('Purchase Price')
 
   def __str__(self):
     return self.name

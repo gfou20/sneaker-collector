@@ -13,8 +13,6 @@
 
 <section class="page-header">
   <h1>Sneaker List</h1>
-  <img src="{% static 'images/jordan.png' %}" alt="Re and black sneaker" />
-  <img src="{% static 'images/converse.png' %}" alt="Black and white sneakers" />
 </section>
 
 <section class="card-container">
@@ -31,6 +29,7 @@
         <h2 class="card-title">{{ sneaker.name }}</h2>
           <p>The {{ sneaker.brand }}  {{ sneaker.name }}s are available!</p>
         <p><small>{{ sneaker.description }}</small></p>
+        <p><small>Purchase price: {{ sneaker.price }}</small></p>
       </div>
       </a>
     </div>

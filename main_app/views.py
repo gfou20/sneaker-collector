@@ -23,7 +23,7 @@ class SneakerCreate(CreateView):
 
 class SneakerUpdate(UpdateView):
   model = Sneaker
-  fields = ['brand','description', 'color']
+  fields = ['brand','description', 'color', 'price']
 
 class SneakerDelete(DeleteView):
   model = Sneaker
