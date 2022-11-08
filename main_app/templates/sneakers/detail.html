@@ -19,6 +19,10 @@
     <h2 class="card-title">{{ sneaker.name }}</h2>
     <p>The {{ sneaker.brand }}  {{ sneaker.name }}s are available!</p>
     <p><small>These sneakers are a {{ sneaker.description }} in {{ sneaker.color }}</small></p>
+    <div class="sneaker-actions">
+      <a href="{% url 'sneakers_update' sneaker.id %}" class="btn warn">Edit</a>
+      <a href="{% url 'sneakers_delete' sneaker.id %}" class="btn danger">Delete</a>
+    </div>
   </div>
 </section>
 
