@@ -40,35 +40,46 @@
 </div>
 </section>
 <div class="release-container">
-<section class="releases">
-  <div class="subsection-title">
-    <h2>Releases</h2>
-  </div>
-  <h3>Add a New Release</h3>
+  <section class="releases">
+    <div class="subsection-title">
+      <h2>Releases</h2>
+    </div>
+    <h3>Add a New Release</h3>
     <form
       action="{% url 'add_release' sneaker.id %}"
       method="post" 
       class="subsection-content"
     >
+      {% if sneaker.rel_for_today %}
+        <p class="rel">The {{sneaker.brand}}    {{sneaker.name}} released today!</p>
+      {% else %}
+        <p class="unrel">The {{sneaker.brand}}    {{sneaker.name}} didn't release today.</p>
+      {% endif %}  
       {% csrf_token %}
       {{ release_form.as_p }}
       <button type="submit" class="btn submit">Add Release</button>
     </form>
     <h3>Previous Releases</h3>
-  <table>
-    <thead>
-      <tr><th>Date</th><th>Drop Type</th></tr>
-    </thead>
-    <tbody>
-      {% for release in sneaker.release_set.all %}
-        <tr>
-          <td>{{release.date}}</td>
-          <td>{{release.get_drop_type_display}}</td>
-        </tr>
-      {% endfor %}
-    </tbody>
-  </table>
-</section>
+    {% if sneaker.release_set.all.count %}
+      <table>
+        <thead>
+          <tr><th>Date</th><th>Drop Type</th></tr>
+        </thead>
+        <tbody>
+          {% for release in sneaker.release_set.all %}
+            <tr>
+              <td>{{release.date}}</td>
+              <td>{{release.get_drop_type_display}}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+			<div class="subsection-content">
+        <p>The {{sneaker.brand}} {{sneaker.name}} have not released recently!</p>
+      </div>
+    {% endif %}
+  </section>
 </div>
 
 {% endblock %}
