@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from .models import Sneaker
+from .models import Sneaker, Location
 from .forms import ReleaseForm
 
 # Create your views here.
@@ -38,3 +38,7 @@ def add_release(request, sneaker_id):
     new_release.sneaker_id = sneaker_id
     new_release.save()
   return redirect('sneakers_detail', sneaker_id=sneaker_id)
+
+class LocationCreate(CreateView):
+  model = Location
+  fields = '__all__'  
