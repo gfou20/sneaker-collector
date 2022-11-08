@@ -26,5 +26,28 @@
     </div>
   </div>
 </section>
+</div>
+</div>
+</section>
+<div class="release-container">
+<section class="releases">
+  <div class="subsection-title">
+    <h2>Releases</h2>
+  </div>
+  <table>
+    <thead>
+      <tr><th>Date</th><th>Drop Type</th></tr>
+    </thead>
+    <tbody>
+      {% for release in sneaker.release_set.all %}
+        <tr>
+          <td>{{release.date}}</td>
+          <td>{{release.get_drop_type_display}}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</section>
+</div>
 
 {% endblock %}
