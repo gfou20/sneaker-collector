@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Sneaker
 from .forms import ReleaseForm
@@ -30,3 +30,11 @@ class SneakerUpdate(UpdateView):
 class SneakerDelete(DeleteView):
   model = Sneaker
   success_url = '/sneakers/'  
+
+def add_release(request, sneaker_id):
+  form = ReleaseForm(request.POST)
+  if form.is_valid():
+    new_release = form.save(commit=False)
+    new_release.sneaker_id = sneaker_id
+    new_release.save()
+  return redirect('sneakers_detail', sneaker_id=sneaker_id)
