@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Sneaker
+from .forms import ReleaseForm
 
 # Create your views here.
 def home(request):
@@ -15,7 +16,8 @@ def sneakers_index(request):
 
 def sneakers_detail(request, sneaker_id):
   sneaker = Sneaker.objects.get(id=sneaker_id)
-  return render(request, 'sneakers/detail.html', {'sneaker': sneaker})
+  release_form = ReleaseForm()
+  return render(request, 'sneakers/detail.html', {'sneaker': sneaker, 'release_form': release_form})
 
 class SneakerCreate(CreateView):
   model = Sneaker
