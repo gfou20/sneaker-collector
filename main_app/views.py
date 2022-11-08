@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.views.generic.edit import CreateView
 from .models import Sneaker
 
 # Create your views here.
@@ -15,3 +16,7 @@ def sneakers_index(request):
 def sneakers_detail(request, sneaker_id):
   sneaker = Sneaker.objects.get(id=sneaker_id)
   return render(request, 'sneakers/detail.html', {'sneaker': sneaker})
+
+class SneakerCreate(CreateView):
+  model = Sneaker
+  fields = '__all__'  
