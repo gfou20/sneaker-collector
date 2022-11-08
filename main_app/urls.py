@@ -11,4 +11,6 @@ urlpatterns = [
   path('sneakers/<int:pk>/delete/', views.SneakerDelete.as_view(), name='sneakers_delete'),
   path('sneakers/<int:sneaker_id>/add_release/', views.add_release, name='add_release'),
   path('locations/create/', views.LocationCreate.as_view(), name='locations_create'),
+  path('locations/<int:pk>/', views.LocationDetail.as_view(), name='locations_detail'),
+  path('locations/', views.LocationList.as_view(), name='locations_index'),
 ]

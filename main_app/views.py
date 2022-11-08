@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Sneaker, Location
 from .forms import ReleaseForm
@@ -42,3 +43,9 @@ def add_release(request, sneaker_id):
 class LocationCreate(CreateView):
   model = Location
   fields = '__all__'  
+
+class LocationList(ListView):
+  model = Location
+
+class LocationDetail(DetailView):
+  model = Location
