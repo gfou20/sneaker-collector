@@ -82,6 +82,7 @@ class Sneaker(models.Model):
   description = models.TextField(max_length=250)
   color = models.CharField(max_length=50)
   price = models.IntegerField('Purchase Price')
+  locations = models.ManyToManyField(Location)
 
   def __str__(self):
     return self.name

@@ -22,7 +22,7 @@ def sneakers_detail(request, sneaker_id):
 
 class SneakerCreate(CreateView):
   model = Sneaker
-  fields = '__all__'  
+  fields = ['name', 'brand', 'description', 'color', 'price']  
 
 class SneakerUpdate(UpdateView):
   model = Sneaker

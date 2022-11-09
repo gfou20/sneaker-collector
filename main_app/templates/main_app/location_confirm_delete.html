@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="page-header">
+  <h1>Delete Location?</h1>
+  <img src="{% static 'images/sneaker-com.png' %}" alt="Sneaker on computer screen"/>
+</div>
+<h2>Are you sure you want to delete {{ location.city }}, {{location.state}}?</h2>
+
+<form action="" method="POST" class="form">
+  {% csrf_token %}
+  <a 
+    href="{% url 'locations_detail' toy.id %}"
+  >
+    Cancel
+  </a>
+  <button type="submit">Yes - Delete!</button>
+</form>
+
+{% endblock %}

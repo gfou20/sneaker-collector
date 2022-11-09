@@ -80,6 +80,29 @@
       </div>
     {% endif %}
   </section>
+  <section class="locations">
+    <div class="subsection-title">
+      <h2>Locations</h2>
+    </div>
+    <h3>{{ sneaker.brand }} {{ sneaker.name }} Release Locations</h3>
+    <div class="subsection-content">
+      {% if sneaker.locations.count %}
+        {% for location in sneaker.locations.all %}
+          <div class="location-container">
+            <a href="{% url 'locations_detail' location.id %}">
+              <p>A {{ location.city }} {{ location.state }}</p>
+            </a>
+          </div>
+        {% endfor %}
+      {% else %}
+        <p class="no-locations">{{sneaker.brand}} {{sneaker.name}} doesn't have any locations yet.</p>
+      {% endif %}
+    </div>
+    <h3>Available Locations</h3>
+    <div class="subsection-content">
+      {% comment %} We'll display available toys here {% endcomment %}
+    </div>
+  </section>
 </div>
 
 {% endblock %}
