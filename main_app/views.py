@@ -17,8 +17,9 @@ def sneakers_index(request):
 
 def sneakers_detail(request, sneaker_id):
   sneaker = Sneaker.objects.get(id=sneaker_id)
+  locations_sneaker_doesnt_have = Location.objects.exclude(id__in = sneaker.locations.all().values_list('id'))
   release_form = ReleaseForm()
-  return render(request, 'sneakers/detail.html', {'sneaker': sneaker, 'release_form': release_form})
+  return render(request, 'sneakers/detail.html', {'sneaker': sneaker, 'release_form': release_form, 'locations': locations_sneaker_doesnt_have})
 
 class SneakerCreate(CreateView):
   model = Sneaker
@@ -57,3 +58,7 @@ class LocationUpdate(UpdateView):
 class LocationDelete(DeleteView):
   model = Location
   success_url = '/locations/'  
+
+def assoc_location(request, sneaker_id, location_id):
+  Sneaker.objects.get(id=sneaker_id).locations.add(location_id)
+  return redirect('sneakers_detail', sneaker_id=sneaker_id)
