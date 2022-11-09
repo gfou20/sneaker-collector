@@ -49,3 +49,11 @@ class LocationList(ListView):
 
 class LocationDetail(DetailView):
   model = Location
+
+class LocationUpdate(UpdateView):
+  model = Location
+  fields = ['state', 'city']
+
+class LocationDelete(DeleteView):
+  model = Location
+  success_url = '/locations/'  
