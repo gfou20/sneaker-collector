@@ -14,11 +14,10 @@
   
 <div>
   <div class="card-content">
-    <h2>{{ location.city }}</h2>
-    <p>Located in {{ location.state }}</p>
+    <h2>{{ location.city }}, {{ location.state }}</h2>
   </div>
 </div>
-<a href="{% url 'locations_update' location.id %}">Edit</a>
-<a href="{% url 'locations_delete' location.id %}">Delete</a>
+<a href="{% url 'locations_update' location.id %}" class="btn warn">Edit</a>
+<a href="{% url 'locations_delete' location.id %}"class="btn danger">Delete</a>
 
 {% endblock %}

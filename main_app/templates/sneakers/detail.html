@@ -64,7 +64,7 @@
     </form>
     <h2>Previous Releases</h2>
     {% if sneaker.release_set.all.count %}
-      <table>
+      <table class="prev-release">
         <thead>
           <tr><th>Date</th><th>Drop Type</th></tr>
         </thead>
@@ -87,7 +87,6 @@
     <div class="subsection-title">
       <h2>Locations</h2>
     </div>
-    <h3>{{ sneaker.brand }} {{ sneaker.name }} Release Locations</h3>
     <div class="subsection-content">
       {% if sneaker.locations.count %}
         {% for location in sneaker.locations.all %}
@@ -98,7 +97,7 @@
           </div>
         {% endfor %}
       {% else %}
-        <p class="no-locations">{{sneaker.brand}} {{sneaker.name}} doesn't have any locations yet.</p>
+        <p class="no-locations">{{sneaker.brand}} {{sneaker.name}} have not been assigned pick up locations yet.</p>
       {% endif %}
     </div>
     <h3>Available Locations</h3>
