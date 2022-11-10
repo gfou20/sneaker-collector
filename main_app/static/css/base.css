@@ -169,6 +169,7 @@ p {
 
 .page-content {
   font-size: var(--font-reg);
+  text-align: center;
 }
 
 .sneaker-logo {
