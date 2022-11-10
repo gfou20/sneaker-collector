@@ -13,7 +13,10 @@
   {% else %}  
     <h1>Add a Sneaker</h1>
   {% endif %}  
-  <img src="{% static 'images/sneaker-com.png' %}" alt="Sneaker on computer screen"/>
+  <img src="{% static 'images/sneaker-com.png' %}" 
+  alt="Sneaker on computer screen"
+  class="sneaker-comp"
+  />
 </div>
 <form action="" method="post" class="form-container">
   {% csrf_token %}

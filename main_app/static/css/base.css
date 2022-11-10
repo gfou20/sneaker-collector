@@ -174,7 +174,23 @@ p {
 .sneaker-logo {
   height: 100px;
   border-radius: 50px;
-  border: var(--borders)
+  border: var(--borders);
+}
+
+.sneaker-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+}
+
+.sneaker-home {
+  height: 200px;
+  border: var(--borders);
+  border-radius: 100px;
+}
+
+.sneaker-comp {
+  height: 100px;
 }
 
 @media only screen and (min-width: 768px) {
