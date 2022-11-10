@@ -34,8 +34,8 @@
     <p><small>These sneakers are a {{ sneaker.description }} in {{ sneaker.color }}</small></p>
     <p><small>Purchase price: {{ sneaker.price }}</small></p>
     <div class="sneaker-actions">
-      <a href="{% url 'sneakers_update' sneaker.id %}">Edit</a>
-      <a href="{% url 'sneakers_delete' sneaker.id %}">Delete</a>
+      <a href="{% url 'sneakers_update' sneaker.id %}" class="btn warn">Edit</a>
+      <a href="{% url 'sneakers_delete' sneaker.id %}" class="btn danger">Delete</a>
     </div>
   </div>
 </section>
@@ -62,7 +62,7 @@
       {{ release_form.as_p }}
       <button type="submit" class="btn submit">Add Release</button>
     </form>
-    <h3>Previous Releases</h3>
+    <h2>Previous Releases</h2>
     {% if sneaker.release_set.all.count %}
       <table>
         <thead>
@@ -92,8 +92,8 @@
       {% if sneaker.locations.count %}
         {% for location in sneaker.locations.all %}
           <div class="location-container">
-            <a href="{% url 'locations_detail' location.id %}">
-              <p>A {{ location.city }} {{ location.state }}</p>
+            <a href="{% url 'locations_detail' location.id %}" class="locations">
+              <p>{{ location.city }}, {{ location.state }}</p>
             </a>
           </div>
         {% endfor %}
@@ -106,7 +106,7 @@
       {% if locations.count %}
         {% for location in locations.all %}
           <div class="location-container">
-            <a href="{% url 'locations_detail' location.id %}">
+            <a href="{% url 'locations_detail' location.id %}" class="locations">
               <p>Available in {{ location.city }}, {{ location.state }}</p>
             </a>
             <form action="{% url 'assoc_location' sneaker.id location.id %}" method="post">

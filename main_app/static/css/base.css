@@ -82,6 +82,11 @@ nav a:hover {
   color: var(--link-hover-color)
 }
 
+a {
+  text-decoration: none;
+  color: rgb(16, 56, 158);
+}
+
 nav ul {
   display: flex;
   align-items: center;
@@ -112,13 +117,13 @@ p {
 
 .btn {
   font-size: var(--font-l);
-  padding: 8px 16px;
+  padding: 5px 10px;
   border-radius: 6px;
   border-width: 2px;
   border-style: solid;
   text-decoration: none;
   background-color: var(--button-bg);
-  font-weight: 600;
+  font-weight: 500;
   cursor: pointer;
   font-family: inherit;
   margin-right: 10px;
