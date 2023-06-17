@@ -1,4 +1,4 @@
-# Sneaker Colelctor
+# Sneaker Collector
 
 Time to collect some [sneakers!]()
 
